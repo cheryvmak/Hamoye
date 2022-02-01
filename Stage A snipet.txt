@@ -1,0 +1,82 @@
+import pandas as pd
+data = pd.read_csv(r'C:\Users\User1\Desktop\python dataset\FoodBalanceSheets_E_Africa_NOFLAG.csv',encoding = 'ISO 8859-1')
+data
+
+1).What is the total sum of Animal Fat produced in 2014 and 2017
+respectively?
+
+CODE
+data[data['Item']=='Animal fats'].sum().Y2014
+data[data['Item']=='Animal fats'].sum().Y2017
+
+or 
+
+data.groupby('Item').sum()
+
+ANSWER
+209460.54,269617.53
+
+2).What is the mean and standard deviation across the whole 
+dataset for the year 2015 to 3 decimal places?
+
+CODE
+data.describe().Y2015
+
+ANSWER
+mean=135.236  Std=1603.404
+
+3).What is the total number and percentage of missing data in 
+2016 to 2 decimal places?
+
+CODE
+data.isnull().sum()
+
+ANSWER
+ 1535
+
+4).Which year has the highest correlation with 'Element Code?
+
+
+5).What year has the highest sum of import Quantity?
+CODE
+data[data['Element']=='Import Quantity'].sum()
+
+ANSWER
+Y2017 with Figure 294559.09
+
+6).What is the total number of the sum of Production in 2014?
+
+CODE
+data[data['Element']=='Production'].Y2014.sum()
+
+ANSWER
+1931287.75
+
+7).Which of these element had the highest sum in 2018?
+
+CODE
+data.groupby('Element').Y2018.sum().sort_values(ascending=False)
+
+ANSWER
+
+Domestic supply quantity  with figure 2161192.10
+
+8).Which of these element had the 3rd lowest sum in 2018
+
+CODE
+data.groupby('Element').Y2018.sum().sort_values(ascending=True)
+
+ANSWER
+Protein supply quantity (g/capita/day) with figure 11833.56
+
+9).What is the total import Quantity in Algeria in 2018?
+
+
+10).What is the number of unique countries in the dataset?
+
+CODE
+len(data.Area.unique())
+
+ANSWER
+49
+
